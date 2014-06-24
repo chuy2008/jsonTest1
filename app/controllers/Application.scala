@@ -40,6 +40,9 @@ object Application extends Controller
   def receiveCode = Action
   {
       request => 
+         println("Application scala routine, line 43, request content type = " + request.contentType)
+         println("Application scala routine, line 44, request body = " + request.body)
+         println("Application scala routine, line 45, request body to String = " + request.toString)
          request.session.get("name").map
            { 
              nam => Ok(Json.toJson(Map("message" -> ("Hello " + nam))))
