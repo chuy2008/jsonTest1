@@ -37,15 +37,37 @@ object Application extends Controller
  *  
  */  
  
-  def receiveCode = Action
+  def receiveCode = Action(parse.json)
   {
+     request => 
+       (request.body \ "name").asOpt[String].map 
+           { 
+             name => Ok (Json.toJson(Map("message" -> ("Hello " + name))))
+           }.getOrElse
+           {
+             BadRequest(Json.toJson(Map("message" -> "Missing parameter [name]")))
+           }    
+     
 //    val json = generate(Map("name" -> "lll"))   
 //    Ok(json).as(JSON)
-     Ok(Json.toJson(Map("name" -> "lll", "now" -> "4:00 pm")))
+//     Ok(Json.toJson(Map("name" -> "lll", "now" -> "4:00 pm")))
     
   }
   
 }
+
+/*
+def sayHello = Action(parse.json) { request =>
+  (request.body \ "name").asOpt[String].map { name =>
+    Ok("Hello " + name)
+  }.getOrElse {
+    BadRequest("Missing parameter [name]")
+  }
+}
+
+
+*/
+
 
 /*  
   def sayHello = Action(parse.json) { request =>
