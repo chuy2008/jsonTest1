@@ -45,10 +45,9 @@ object Application extends Controller
              nam => Ok(Json.toJson(Map("message" -> ("Hello " + nam))))
            }.getOrElse
            {
-             BadRequest(Json.toJson(Map("message" -> "Missing parameter [request.body]")))
+             BadRequest(Json.toJson(Map("message" -> "Missing parameter")))
            }
-    
-    
+      
 /*
     request => 
          (name).asOpt[String].map 
