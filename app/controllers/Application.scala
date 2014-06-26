@@ -43,6 +43,7 @@ object Application extends Controller
          println("Application scala routine, line 43, request content type = " + request.contentType)
          println("Application scala routine, line 44, request body = " + request.body)
          println("Application scala routine, line 45, request body to String = " + request.toString)
+/*
          request.session.get("name").map
            { 
              nam => Ok(Json.toJson(Map("message" -> ("Hello " + nam))))
@@ -50,7 +51,7 @@ object Application extends Controller
            {
              BadRequest(Json.toJson(Map("message" -> "Missing parameter")))
            }
-      
+ */    
 /*
     request => 
          (name).asOpt[String].map 
@@ -86,7 +87,7 @@ object Application extends Controller
  */                    
 //    val json = generate(Map("name" -> "lll"))   
 //    Ok(json).as(JSON)
-//      Ok(Json.toJson(Map("name" -> "Fregon", "now" -> "4:00 pm")))
+      Ok(Json.toJson(Map("name" -> "Fregon", "now" -> "4:00 pm")))
     
   }
   
