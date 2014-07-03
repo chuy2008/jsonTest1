@@ -91,6 +91,16 @@ object Application extends Controller
     
   }
   
+  def receiveCode2 = Action
+  {
+      request => 
+         println("Application scala routine, line 43, request content type = " + request.contentType)
+         println("Application scala routine, line 44, request body = " + request.body)
+         println("Application scala routine, line 45, request body to String = " + request.toString)
+      Ok(Json.toJson(Map("name" -> "Fregon2", "now" -> "11:00 pm")))    
+  }
+  
+  
 }
 
 /*
